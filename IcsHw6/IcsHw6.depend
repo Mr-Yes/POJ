@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1415765285 source:c:\users\naive baby\documents\github\poj\icshw6\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+

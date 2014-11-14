@@ -1,22 +1,20 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
-
-int main()
+int main (void)
 {
-    double price[10]={28.9,32.7,45.6,78,35,86.2,27.8,43,56,65 };
-    int k;
-    scanf("%d",&k);
-    while(k--){
-        double sum=0;
-        int i=0;
-        int bookNum;
-        for(i=0;i<10;i++){
-            scanf("%d",&bookNum);
-            sum += bookNum*price[i];
-        }
-        printf("%.2f\n", sum);
+    float a,b,c,s;
+    printf("Please enter 3 reals:\n");
+    scanf("%f%f%f",&a,&b,&c);
 
+    printf("%f\n%f\n%f\n",a,b,c);
+
+    if((a+b)>c&&(a+c)>b&&(b+c)>a)
+    {
+        s=(a+b+c)/2;
+        printf("\nArea of the triangle is %f\n",sqrt(s*(s-a)*(s-b)*(s-c)));
     }
+    else
+        printf("It is not triangle!\n");
     return 0;
 }
