@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1416583805 source:c:\users\babe\documents\github\poj\i2c_hw7\i2chw7\main.c
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+	<string.h>
+
