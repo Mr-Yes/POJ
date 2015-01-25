@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1420688136 source:c:\users\babe\documents\github\poj\i2cfinalexam\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<math.h>
+

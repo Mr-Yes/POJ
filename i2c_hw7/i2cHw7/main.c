@@ -2,7 +2,304 @@
 #include <stdlib.h>
 #include <math.h>
 #include<string.h>
+
+int main()
+{
+
+}
 /*
+int row,col;
+int num[100][100];
+int showCircle(int a,int b,int c,int d)
+{
+    //printf("\n%d %d %d %d\n",a,b,c,d);
+    int i;
+    if( (a>d) || (b>c) ) return 0;
+    if(a==d){
+        for(i=b;i<=c;i++){
+            printf("%d\n",num[a][i]);
+        }
+        return 0;
+    }
+    if(b==c){
+        for(i=a;i<=d;i++){
+            printf("%d\n",num[i][c]);
+        }
+        return 0;
+    }
+
+    for(i=b;i<=c;i++){
+        printf("%d\n", num[a][i] );
+    }
+    for(i=a+1;i<=d;i++){
+        printf("%d\n",num[i][c]);
+    }
+    for(i=c-1;i>=b;i--){
+        printf("%d\n",num[d][i]);
+    }
+    for(i=d-1;i>a;i--){
+        printf("%d\n",num[i][b]);
+    }
+    showCircle(a+1,b+1,c-1,d-1);
+    return 0;
+}
+int main()
+{
+
+    scanf("%d%d",&row,&col);
+    int i,j;
+
+    int tag=0;
+    for(i=0;i<row;i++){
+        for(j=0;j<col;j++){
+            scanf("%d",&num[i][j]);
+        }
+    }
+
+    showCircle(0,0,col-1,row-1);
+    return 0;
+}
+
+//
+int s[1000][1000];
+
+int main()
+{
+    int n;
+    scanf("%d",&n);
+    int i,j;
+    int sum=0;
+    for(i=0;i<n;i++){
+        for(j=0;j<n;j++)
+            scanf("%d",&s[i][j]);
+    }
+    //row
+    for(i=0;i<n;i++){
+        for(j=0;j<n;j++)
+            if(s[i][j]==255)
+                s[i][j]=0;
+            else
+                break;
+    }
+    for(i=0;i<n;i++){
+        for(j=n-1;j>0;j--)
+            if(s[i][j]==255)
+                s[i][j]=0;
+            else
+                break;
+    }
+    //column
+    for(i=0;i<n;i++){
+        for(j=0;j<n;j++)
+            if(s[j][i]==255)
+                s[j][i]=0;
+            else
+                break;
+    }
+    for(i=0;i<n;i++){
+        for(j=n-1;j>0;j--)
+            if(s[j][i]==255)
+                s[j][i]=0;
+            else
+                break;
+    }
+    //sum
+    for(i=0;i<n;i++){
+        for(j=0;j<n;j++)
+            if(s[i][j]==255)
+                sum++;
+    }
+    printf("%d",sum);
+    return 0;
+}
+
+
+#define N 20002
+
+int quickSort(int*num,int i,int j)
+{
+    //printf("\nNum%d %d\n",i,j);
+    if(i>j){
+        return 0;
+    }
+
+    int start=i;
+    int end=j;
+    printf("%d ",num[i]);
+    if(i==j){
+        return 0;
+    }
+    int key=num[i];
+    while(i<j){
+        //从j开始向前搜索，即由后开始向前搜索（j=j-1即j--），找到第一个小于key的值A[j]，A[j]与A[i]交换
+        while(num[j]>key)
+            j--;
+        if(j<i){
+            //quickSort(num,start+1,j);
+            //return 0;
+            break;
+        }
+        int tmp=num[j];
+        num[j]=num[i];
+        num[i]=tmp;
+
+        //4）从i开始向后搜索，即由前开始向后搜索（i=i+1即i++），找到第一个大于key的A[i]，A[i]与A[j]交换；
+        while(num[i]<key)
+            i++;
+        if(i>j){
+            //quickSort(num,start,j-1);
+            //return 0;
+            break;
+        }
+        tmp=num[j];
+        num[j]=num[i];
+        num[i]=tmp;
+
+    }
+    quickSort(num,start,i-1);
+    quickSort(num,i+1,end);
+    return 0;
+}
+
+int main()
+{
+    int round;
+    scanf("%d",&round);
+    int cnt=0;
+    while(cnt<round){
+        cnt++;
+        int n;
+        scanf("%d",&n);
+
+        int num[N];
+        int i,j;
+        for(i=0;i<n;i++){
+            scanf("%d",&num[i]);
+        }
+
+        quickSort(num,0,n-1);
+        printf("\n");
+    }
+
+    return 0;
+}
+
+
+int main()
+{
+    int n;
+    int tag[N];
+    int num[N];
+    int i;
+    for(i=0;i<N;i++){
+        tag[i]=0;
+    }
+
+    scanf("%d",&n);
+    for(i=0;i<n;i++){
+        scanf("%d",&num[i]);
+        tag[num[i]+10000]=1;
+    }
+    for(i=10001;i<N;i++){
+        if(tag[i]==0){
+            printf("%d",i-10000);
+            break;
+        }
+    }
+    return 0;
+}
+
+int main()
+{
+    int a[100][100];
+    int b[100][100];
+    int c[100][100];
+    int n;
+    scanf("%d",&n);
+    int i,j;
+    for(i=0;i<n;i++)
+    for(j=0;j<n;j++){
+        scanf("%d",&a[i][j]);
+    }
+    for(i=0;i<n;i++)
+    for(j=0;j<n;j++){
+        scanf("%d",&b[i][j]);
+    }
+    for(i=0;i<n;i++)
+    for(j=0;j<n;j++){
+        c[i][j]=0;
+        int k=0;
+        for(k=0;k<n;k++){
+            c[i][j] += a[i][k]*b[k][j];
+        }
+    }
+    for(i=0;i<n;i++){
+        for(j=0;j<n;j++){
+            printf("%d ",c[i][j]);
+            if(j== n-1){
+                printf("\n");
+            }
+        }
+    }
+    return 0;
+}
+
+
+int main()
+{
+    int ma[100][100];
+    int n;
+    scanf("%d",&n);
+    int i,j;
+    for(i=0;i<n;i++)
+    for(j=0;j<n;j++){
+        scanf("%d",&ma[i][j]);
+    }
+    for(j=0;j<n;j++){
+        for(i=0;i<n;i++){
+            printf("%d",ma[i][j]);
+            if(i!= n-1){
+                printf("\t");
+            }
+
+            else{
+                printf("\n");
+            }
+        }
+    }
+    return 0;
+}
+
+int main()
+{
+    int n;
+    int a[1000];
+    scanf("%d",&n);
+    int i=0;
+    while(i<n){
+        scanf("%d",&a[i]);
+        i++;
+    }
+    i=0;
+    while(i<n/2){
+        a[i]=a[i]^a[n-1-i];
+        a[n-1-i]=a[i]^a[n-1-i];
+        a[i]=a[n-1-i]^a[i];
+        i++;
+    }
+    i=0;
+    while(i<n){
+        printf("%d",a[i]);
+        if(i<n-1)
+            printf(" ");
+        i++;
+    }
+    return 0;
+}
+
+
+
+
 int main()
 {
     int m,n;
