@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1420711462 source:c:\users\naive baby\documents\github\poj\2014i2c\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+

@@ -1,4 +1,21 @@
+#inlcude<stdio.h>
+int main()
+{
+    int n;
+    scanf("%d",&n);
+    int i,j;
+    int a[1000][1000];
+    for(i=0;i<n;i++){
+        for(j=0;j<n;j++){
+            scanf("%d",&a[i][j])
+        }
+    }
+    for(i=0;i<n;i++){
+        while(j<)
+    }
+    return 0;
 
+}
 /*
 #include <stdio.h>
 #include <stdlib.h>
@@ -23,7 +40,6 @@ int main()
     //printf("Hello world!\n");
     return 0;
 }
-*/
 
 #include <stdio.h>
 
@@ -50,7 +66,7 @@ int main( ){
 
 
 
-/*
+
 typedef struct ELE *tree_ptr;
 
 struct ELE {
